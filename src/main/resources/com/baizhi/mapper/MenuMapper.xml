@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.dao.MenuDao">
+   <resultMap type="menu" id="a">
+      <id column="pid" property="id"/>
+      <result column="ptitle" property="title"/>
+      <result column="piconcls" property="iconcls"/>
+      <collection property="list" ofType="Menu">
+         <id column="cid" property="id"/>
+         <result column="ctitle" property="title"/>
+         <result column="ciconcls" property="iconcls"/>
+      </collection>
+   </resultMap>
+   <select id="queryAllMenu" resultType="Menu">
+      SELECT id,title,iconcls,url,parent_id from menu where parent_id is null
+   </select>
+   <select id="querySecond" parameterType="Integer" resultMap="a">
+      SELECT p.id pid,p.title ptitle,p.iconcls piconcls,
+      c.id cid,c.title ctitle,c.iconcls ciconcls
+	    FROM menu p
+	    LEFT JOIN menu c
+	    ON p.id=c.parent_id
+	    WHERE p.id=#{id}
+   </select>
+   <select id="querySecondById" resultType="Menu">
+      SELECT id,title,iconcls,url from menu where parent_id=#{parent_id}
+   </select>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

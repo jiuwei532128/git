@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.dao.ShufflingDao">
+   <select id="queryAllShuffling" resultType="Shuffling">
+      SELECT id,title,imgPath,dese,status,date from shuffling
+   </select>
+   <insert id="addShuffling" parameterType="Shuffling">
+   insert into shuffling(title,imgPath,dese,status,date) values (#{title},#{imgPath},#{dese},#{status},now())
+  </insert>
+   <update id="updateShuffling" parameterType="Shuffling">
+      update shuffling set status=#{status} WHERE id=#{id}
+   </update>
+   <delete id="deleteShuffling" parameterType="Integer">
+      delete  from shuffling where id=#{id}
+   </delete>
+    <select id="quertById" parameterType="Integer" resultType="Shuffling">
+        select * from shuffling where id=#{id}
+    </select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

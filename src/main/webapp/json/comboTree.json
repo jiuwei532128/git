@@ -1,0 +1,33 @@
+[
+  {
+    "id": "customer",
+    "text": "请选择",
+    "state": "open",
+    "children": [
+      {
+        "text": "编号",
+        "id": "id"  
+      },
+      {
+        "text": "名字",
+        "id": "title"
+      },
+      {
+        "text": "图片路径",
+        "id": "imgPath"
+      },
+	  {
+        "text": "描述",
+        "id": "dese"
+      },
+	  {
+        "text": "状态",
+        "id": "status"
+      },
+      {
+        "text": "日期",
+        "id": "date"
+      }
+    ]
+  }
+]
